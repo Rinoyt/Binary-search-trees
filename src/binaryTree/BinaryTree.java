@@ -9,7 +9,7 @@ public interface BinaryTree {
 
     Node find(int value);
 
-    void insert(Node node);
+    void insert(int value);
 
-    void delete(Node node);
+    void delete(int val);
 }

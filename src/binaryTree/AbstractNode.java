@@ -7,19 +7,19 @@ public abstract class AbstractNode implements Node {
     protected int height = 1;
     protected int size = 1;
 
-    public AbstractNode(int value) {
+    protected AbstractNode(int value) {
         this.value = value;
     }
 
-    public AbstractNode(int value, Node left, Node right) {
+    protected AbstractNode(int value, Node left, Node right) {
         this.value = value;
         this.left = left;
         this.right = right;
-        height += Math.max(left.getHeight(), right.getHeight());
-        size += left.getSize() + right.getSize();
+        setHeight();
+        setSize();
     }
 
-    public AbstractNode(Node that) {
+    protected AbstractNode(Node that) {
         this.value = that.getValue();
         this.left = that.getLeft();
         this.right = that.getRight();
@@ -54,10 +54,42 @@ public abstract class AbstractNode implements Node {
     @Override
     public void setLeft(Node left) {
         this.left = left;
+        setHeight();
+        setSize();
     }
 
     @Override
     public void setRight(Node right) {
         this.right = right;
+        setHeight();
+        setSize();
+    }
+
+    private void setHeight() {
+        int l = 0;
+        if (left != null) {
+            l = left.getHeight();
+        }
+
+        int r = 0;
+        if (right != null) {
+            r = right.getHeight();
+        }
+
+        height = 1 + Math.max(l, r);
+    }
+
+    private void setSize() {
+        int l = 0;
+        if (left != null) {
+            l = left.getSize();
+        }
+
+        int r = 0;
+        if (right != null) {
+            r = right.getSize();
+        }
+
+        size = 1 + Math.max(l, r);
     }
 }

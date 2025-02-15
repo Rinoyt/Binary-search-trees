@@ -1,7 +1,21 @@
 package binaryTree;
 
+import binaryTree.avlTree.AvlNode;
+
+import java.util.Collection;
+
 public abstract class AbstractBinaryTree implements BinaryTree {
-    protected Node root;
+    protected Node root = null;
+
+    protected AbstractBinaryTree(Collection<Integer> values) {
+        for (Integer val : values) {
+            this.insert(val);
+        }
+    }
+
+    protected AbstractBinaryTree(Node root) {
+        this.root = root;
+    }
 
     @Override
     public Node getRoot() {
