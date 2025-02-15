@@ -90,6 +90,6 @@ public abstract class AbstractNode implements Node {
             r = right.getSize();
         }
 
-        size = 1 + Math.max(l, r);
+        size = 1 + l + r;
     }
 }
