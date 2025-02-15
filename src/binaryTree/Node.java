@@ -6,4 +6,12 @@ public interface Node {
     Node getLeft();
 
     Node getRight();
+
+    int getHeight();
+
+    int getSize();
+
+    void setLeft(Node left);
+
+    void setRight(Node left);
 }
