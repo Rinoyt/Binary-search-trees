@@ -1,17 +1,17 @@
 package binaryTree;
 
-public abstract class DefaultNode implements Node {
+public abstract class AbstractNode implements Node {
     private final int value;
     protected Node left = null;
     protected Node right = null;
     protected int height = 1;
     protected int size = 1;
 
-    public DefaultNode(int value) {
+    public AbstractNode(int value) {
         this.value = value;
     }
 
-    public DefaultNode(int value, Node left, Node right) {
+    public AbstractNode(int value, Node left, Node right) {
         this.value = value;
         this.left = left;
         this.right = right;
@@ -19,7 +19,7 @@ public abstract class DefaultNode implements Node {
         size += left.getSize() + right.getSize();
     }
 
-    public DefaultNode(Node that) {
+    public AbstractNode(Node that) {
         this.value = that.getValue();
         this.left = that.getLeft();
         this.right = that.getRight();
