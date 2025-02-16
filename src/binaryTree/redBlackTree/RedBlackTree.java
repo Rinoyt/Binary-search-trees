@@ -1,11 +1,14 @@
 package binaryTree.redBlackTree;
 
+import binaryTree.AbstractBinaryTree;
 import binaryTree.Node;
-import binaryTree.RotateBinaryTree;
+
+import static binaryTree.Rotations.leftRotate;
+import static binaryTree.Rotations.rightRotate;
 
 import java.util.Collection;
 
-public class RedBlackTree extends RotateBinaryTree {
+public class RedBlackTree extends AbstractBinaryTree {
     public RedBlackTree() {
         super();
     }

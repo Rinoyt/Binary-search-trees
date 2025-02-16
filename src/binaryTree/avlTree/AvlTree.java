@@ -2,11 +2,13 @@ package binaryTree.avlTree;
 
 import binaryTree.AbstractBinaryTree;
 import binaryTree.Node;
-import binaryTree.RotateBinaryTree;
+
+import static binaryTree.Rotations.leftRotate;
+import static binaryTree.Rotations.rightRotate;
 
 import java.util.Collection;
 
-public class AvlTree extends RotateBinaryTree {
+public class AvlTree extends AbstractBinaryTree {
     public AvlTree() {
         super();
     }
