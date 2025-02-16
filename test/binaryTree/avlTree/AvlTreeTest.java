@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AvlTreeTest extends BinaryTreeTest {
     @Test
-    void insertTest() {
+    void insertThenDeleteTest() {
         int[] asc  = {1,2,3,4,5,6,7,8,9};
         int[] desc = {1,2,3,4,5,6,7,8,9};
         int[] rand = {4,8,5,2,3,1,9,7,6};
