@@ -1,13 +1,12 @@
 package binaryTree.avlTree;
 
-import binaryTree.BinaryTree;
-import org.junit.jupiter.api.Test;
+import binaryTree.BinaryTreeTest;
 
-import java.util.Arrays;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AvlTreeTest {
+class AvlTreeTest extends BinaryTreeTest {
     @Test
     void insertTest() {
         int[] asc  = {1,2,3,4,5,6,7,8,9};
@@ -21,25 +20,6 @@ class AvlTreeTest {
             memberAll(tree, var);
             deleteAll(tree, var);
             assertEquals(0, tree.size());
-        }
-    }
-
-    private void insertAll(BinaryTree tree, int[] asc) {
-        for (int elem : asc) {
-            tree.insert(elem);
-        }
-    }
-
-    private void memberAll(BinaryTree tree, int[] asc) {
-        for (int elem : asc) {
-            assertNotNull(tree.find(elem),
-                    "Element " + elem + " not found in " + Arrays.toString(asc));
-        }
-    }
-
-    private void deleteAll(BinaryTree tree, int[] asc) {
-        for (int elem : asc) {
-            tree.delete(elem);
         }
     }
 }
