@@ -67,7 +67,7 @@ public abstract class AbstractBinaryTree implements BinaryTree {
 
     protected Node insert(Node cur, Node newNode) {
         if (cur == null) {
-            return newNode;
+            return balance(newNode);
         }
 
         if (cur.getValue() == newNode.getValue()) {
