@@ -32,65 +32,7 @@ public class AvlTree extends AbstractBinaryTree {
     }
 
     @Override
-    public void delete(int val) {
-        root = delete(root, val);
-    }
-
-    private static Node insert(Node cur, Node newNode) {
-        if (cur == null) {
-            return newNode;
-        }
-
-        if (cur.getValue() == newNode.getValue()) {
-            return cur;
-        }
-
-        if (newNode.getValue() < cur.getValue()) {
-            cur.setLeft(insert(cur.getLeft(), newNode));
-        } else {
-            cur.setRight(insert(cur.getRight(), newNode));
-        }
-
-        return balance(cur);
-    }
-
-    private static Node delete(Node cur, int val) {
-        if (cur == null) {
-            return null;
-        }
-
-        if (cur.getValue() == val) {
-            if (cur.getLeft() == null && cur.getRight() == null) {
-                return null;
-            }
-
-            if (cur.getLeft() == null) {
-                return cur.getRight();
-            }
-
-            if (cur.getRight() == null) {
-                return cur.getLeft();
-            }
-
-            Node nextHead = cur.getRight();
-            while (nextHead.getLeft() != null) {
-                nextHead = nextHead.getLeft();
-            }
-            nextHead.setRight(delete(cur.getRight(), nextHead.getValue()));
-            nextHead.setLeft(cur.getLeft());
-            return balance(nextHead);
-        }
-
-        if (val < cur.getValue()) {
-            cur.setLeft(delete(cur.getLeft(), val));
-        } else {
-            cur.setRight(delete(cur.getRight(), val));
-        }
-
-        return balance(cur);
-    }
-
-    private static Node balance(Node cur) {
+    protected Node balance(Node cur) {
         int balance = getBalance(cur);
         if (balance >= -1 && balance <= 1) {
             return cur;
