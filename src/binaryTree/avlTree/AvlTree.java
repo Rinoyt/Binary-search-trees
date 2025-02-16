@@ -6,7 +6,19 @@ import binaryTree.Node;
 import java.util.Collection;
 
 public class AvlTree extends AbstractBinaryTree {
+    public AvlTree() {
+        super();
+    }
+
     public AvlTree(Collection<Integer> values) {
+        super(values);
+    }
+
+    public AvlTree(Integer[] values) {
+        super(values);
+    }
+
+    public AvlTree(int[] values) {
         super(values);
     }
 
@@ -64,8 +76,8 @@ public class AvlTree extends AbstractBinaryTree {
             while (nextHead.getLeft() != null) {
                 nextHead = nextHead.getLeft();
             }
-            nextHead.setLeft(cur.getLeft());
             nextHead.setRight(delete(cur.getRight(), nextHead.getValue()));
+            nextHead.setLeft(cur.getLeft());
             return balance(nextHead);
         }
 
@@ -85,8 +97,8 @@ public class AvlTree extends AbstractBinaryTree {
         }
 
         if (balance > 1) {
-            if (getBalance(cur.getLeft()) > 1) {
-                return rightRotate(cur, cur.getLeft());
+            if (getBalance(cur.getLeft()) >= 0) {
+                return rightRotate(cur.getLeft(), cur);
             } else {
                 return rightRotate(
                         leftRotate(
@@ -95,7 +107,7 @@ public class AvlTree extends AbstractBinaryTree {
                         cur);
             }
         } else {
-            if (getBalance(cur.getRight()) > 1) {
+            if (getBalance(cur.getRight()) >= 1) {
                 return leftRotate(
                         cur,
                         rightRotate(
