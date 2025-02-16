@@ -13,18 +13,14 @@ public abstract class AbstractNode implements Node {
 
     protected AbstractNode(int value, Node left, Node right) {
         this.value = value;
-        this.left = left;
-        this.right = right;
-        setHeight();
-        setSize();
+        setLeft(left);
+        setRight(right);
     }
 
     protected AbstractNode(Node that) {
         this.value = that.getValue();
-        this.left = that.getLeft();
-        this.right = that.getRight();
-        this.height = that.getHeight();
-        this.size = that.getSize();
+        setLeft(that.getLeft());
+        setRight(that.getRight());
     }
 
     @Override
