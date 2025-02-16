@@ -23,12 +23,12 @@ public class AvlTree extends AbstractBinaryTree {
     }
 
     public AvlTree(Node root) {
-        super(root);
+        super(new AvlNode(root));
     }
 
     @Override
-    public void insert(int val) {
-        root = insert(root, new AvlNode(val));
+    public void insert(int value) {
+        root = insert(root, new AvlNode(value));
     }
 
     @Override
