@@ -2,10 +2,10 @@ package binaryTree;
 
 public abstract class AbstractNode implements Node {
     private final int value;
-    protected Node left = null;
-    protected Node right = null;
-    protected int height = 1;
-    protected int size = 1;
+    private Node left = null;
+    private Node right = null;
+    private int height = 1;
+    private int size = 1;
 
     protected AbstractNode(int value) {
         this.value = value;
