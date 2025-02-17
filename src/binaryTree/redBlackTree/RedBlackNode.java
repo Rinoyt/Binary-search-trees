@@ -4,7 +4,7 @@ import binaryTree.AbstractNode;
 import binaryTree.Node;
 
 public class RedBlackNode extends AbstractNode {
-    public Rotation rotate = null;
+    public Rotation rotate = Rotation.NONE;
 
     private RedBlackNode parent = this;
     private NodeColor color = NodeColor.RED;
@@ -65,6 +65,11 @@ public class RedBlackNode extends AbstractNode {
 
     @Override
     public void setLeft(Node left) {
+        if (left == null) {
+            super.setRight(null);
+            return;
+        }
+
         if (left instanceof RedBlackNode child) {
             child.setParent(this);
             super.setLeft(child);
@@ -75,9 +80,14 @@ public class RedBlackNode extends AbstractNode {
 
     @Override
     public void setRight(Node right) {
+        if (right == null) {
+            super.setRight(null);
+            return;
+        }
+
         if (right instanceof RedBlackNode child) {
             child.setParent(this);
-            super.setLeft(child);
+            super.setRight(child);
         } else {
             throw new IllegalStateException("Child of a RedBlackNode must be a RedBlackNode");
         }
