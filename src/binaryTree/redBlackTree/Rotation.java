@@ -1,5 +1,5 @@
 package binaryTree.redBlackTree;
 
 public enum Rotation {
-    LeftLeft, LeftRight, RightRight, RightLeft
+    LeftLeft, LeftRight, RightRight, RightLeft, NONE
 }
